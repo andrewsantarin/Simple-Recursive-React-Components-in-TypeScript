@@ -1,4 +1,4 @@
-# Simple-Recursive-React-Components-in-TypeScript
+# Simple Recursive React Components in TypeScript
 Created with CodeSandbox
 
 This example shows how to make recursive components in TypeScript without getting tied up in a single monolithic tree generator component. Instead, it breaks the tree generation into three major components:
