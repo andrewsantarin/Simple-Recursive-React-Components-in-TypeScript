@@ -1,0 +1,8 @@
+.app {
+  font-family: sans-serif;
+}
+
+.menu,
+.menu-submenu {
+  margin-left: 10px;
+}
