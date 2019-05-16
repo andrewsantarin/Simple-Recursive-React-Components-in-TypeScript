@@ -70,6 +70,8 @@ According to the sources I got this from:
 
 Module resolution works by overriding the exported `Menu` object in [a separate `menu.components` file](./src/menu/components/menu.components.ts) through function hoisting ([convoluted explanation... here?](https://stackoverflow.com/a/42704874)) because both component types depend on each other. Without this file, there will be circular dependencies. Then, in order to make the resolved modules look easier to understand, it's exported again, along with the necessary types in [`Menu`](./src/menu/Menu.ts`) (we're using JSON to generate the tree, so the `Item` type could be useful).
 
+Perhaps an even easier way to describe (solve) this whole mess is through [the internal module pattern](https://medium.com/visual-development/how-to-fix-nasty-circular-dependency-issues-once-and-for-all-in-javascript-typescript-a04c987cf0de#9afb).
+
 ## Usage
 View and fork the running example online at [my CodeSandbox instance](https://codesandbox.io/s/github/andrewsantarin/Simple-Recursive-React-Components-in-TypeScript). Alternatively, for a local install, copy and run these console commands below:
 
