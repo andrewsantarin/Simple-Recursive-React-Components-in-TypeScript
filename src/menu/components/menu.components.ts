@@ -1,5 +1,5 @@
 import React from "react";
-import { Omit } from "yargs";
+import { Omit } from "recompose";
 
 /**
  * A single menu element, which may or may not contain recursive sub menu elements.
@@ -34,6 +34,8 @@ export type Item = {
  * information to determine the hierarchical position of its item children.
  */
 export type Submenu = Omit<Item, "label">;
+// Submenu is basically Item without ".label".
+// Your mileage may vary on this; your use case might say otherwise!
 
 export type ItemComponent = React.ComponentClass<Item, {}>;
 export type SubmenuComponent = React.ComponentClass<Submenu, {}>;
