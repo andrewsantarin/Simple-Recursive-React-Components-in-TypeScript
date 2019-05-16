@@ -1,0 +1,44 @@
+[
+  {
+    "label": "The",
+    "items": [
+      {
+        "label": "quick",
+        "items": [
+          {
+            "label": "brown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "fox",
+    "items": [
+      {
+        "label": "jumps",
+        "items": [
+          {
+            "label": "over"
+          }
+        ]
+      },
+      {
+        "label": "the",
+        "items": [
+          {
+            "label": "lazy",
+            "items": [
+              {
+                "label": "soptted"
+              },
+              {
+                "label": "dog."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
