@@ -7,9 +7,63 @@ This example shows how to make recursive components in TypeScript without gettin
 - The branch node, [`<Submenu />`](./src/menu/components/MenuSubmenu.tsx).
 - The root node, [`<Root />`](./src/index.tsx).
 
-The names of the components could be anything you want, as long as by the end of the day, your structure adheres to [the Architecture diagram](https://medium.com/the-guild/recursive-react-tree-component-implementation-made-easy-466dfce1a008#b5ba).
+The names of the components could be anything you want, as long as by the end of the day, your component tree structure adheres to [the Architecture diagram](https://medium.com/the-guild/recursive-react-tree-component-implementation-made-easy-466dfce1a008#b5ba).
 
-Module resolution works by overriding the exported `Menu` object in [`menu.components`](./src/menu/components/menu.components.ts). Then, in order to make the resolved modules look easier to understand, it's exported again, along with the necessary types in [`Menu`](./src/menu/Menu.ts`) (we're using JSON to generate the tree, so the `Item` type could be useful).
+The tree in this example resembles the following:
+
+```json
+[
+  {
+    "label": "The",
+    "items": [
+      {
+        "label": "quick",
+        "items": [
+          {
+            "label": "brown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "fox",
+    "items": [
+      {
+        "label": "jumps",
+        "items": [
+          {
+            "label": "over"
+          }
+        ]
+      },
+      {
+        "label": "the",
+        "items": [
+          {
+            "label": "lazy",
+            "items": [
+              {
+                "label": "soptted"
+              },
+              {
+                "label": "dog."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+The philosophy is simple:
+
+- Where there's a `label` attribute, there's an `<Item />` component.
+- Where there's an `items` attribute, there's a `<Submenu />` component.
+
+Module resolution works by overriding the exported `Menu` object in [a separate `menu.components` file](./src/menu/components/menu.components.ts) through function hoisting ([convoluted explanation... here?](https://stackoverflow.com/a/42704874)) because both component types depend on each other. Without this file, there will be circular dependencies. Then, in order to make the resolved modules look easier to understand, it's exported again, along with the necessary types in [`Menu`](./src/menu/Menu.ts`) (we're using JSON to generate the tree, so the `Item` type could be useful).
 
 ## Usage
 View and fork the running example online at [my CodeSandbox instance](https://codesandbox.io/s/github/andrewsantarin/Simple-Recursive-React-Components-in-TypeScript). Alternatively, for a local install, copy and run these console commands below:
