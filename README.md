@@ -5,7 +5,7 @@ This example shows how to make recursive components in TypeScript without gettin
 
 - The leaf node, [`<Item />`](./src/menu/components/MenuItem.tsx).
 - The branch node, [`<Submenu />`](./src/menu/components/MenuSubmenu.tsx).
-- The root node, [`<Root />`](./src/index.tsx).
+- The root node, [`<Root />`](./src/Root.tsx).
 
 It's worth noting that `<Item />` and `<Submenu />` will depend on each other due to the recursive nature of the code. Read on in **[Resolving the "Circular Dependency" Problem](#resolving-the-circular-dependency-problem)** for details.
 
