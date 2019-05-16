@@ -11,7 +11,7 @@ It's worth noting that `<Item />` and `<Submenu />` will depend on each other du
 
 The names of the components could be anything you want, as long as by the end of the day, your component tree structure adheres to [the Architecture diagram](https://medium.com/the-guild/recursive-react-tree-component-implementation-made-easy-466dfce1a008#b5ba).
 
-The tree in this example resembles the following:
+The tree in this example resembles the following (running example uses [this JSON file](./src/Root.Tree.json)):
 
 ```json
 [
