@@ -12,7 +12,7 @@ The names of the components could be anything you want, as long as by the end of
 Module resolution works by overriding the exported `Menu` object in [`menu.components`](./src/menu/components/menu.components.ts). Then, in order to make the resolved modules look easier to understand, it's exported again, along with the necessary types in [`Menu`](./src/menu/Menu.ts`) (we're using JSON to generate the tree, so the `Item` type could be useful).
 
 ## Usage
-View and fork the running example online at [my CodeSandbox instance](https://codesandbox.io/s/github/andrewsantarin/Simple-Recursive-React-Components-in-TypeScript). Alternatively, for a local install, copy and run these command-line instructions below:
+View and fork the running example online at [my CodeSandbox instance](https://codesandbox.io/s/github/andrewsantarin/Simple-Recursive-React-Components-in-TypeScript). Alternatively, for a local install, copy and run these console commands below:
 
 **NPM users**
 ```sh
