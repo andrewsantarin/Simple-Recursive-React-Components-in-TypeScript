@@ -7,6 +7,8 @@ This example shows how to make recursive components in TypeScript without gettin
 - The branch node, [`<Submenu />`](./src/menu/components/MenuSubmenu.tsx).
 - The root node, [`<Root />`](./src/index.tsx).
 
+It's worth noting that `<Item />` and `<Submenu />` will depend on each other due to the recursive nature of the code. 
+
 The names of the components could be anything you want, as long as by the end of the day, your component tree structure adheres to [the Architecture diagram](https://medium.com/the-guild/recursive-react-tree-component-implementation-made-easy-466dfce1a008#b5ba).
 
 The tree in this example resembles the following:
@@ -63,6 +65,9 @@ The philosophy is simple:
 - Where there's a `label` attribute, there's an `<Item />` component.
 - Where there's an `items` attribute, there's a `<Submenu />` component.
 
+### Resolving the "Circular Dependency" Problem
+According to the sources I got this from:
+
 Module resolution works by overriding the exported `Menu` object in [a separate `menu.components` file](./src/menu/components/menu.components.ts) through function hoisting ([convoluted explanation... here?](https://stackoverflow.com/a/42704874)) because both component types depend on each other. Without this file, there will be circular dependencies. Then, in order to make the resolved modules look easier to understand, it's exported again, along with the necessary types in [`Menu`](./src/menu/Menu.ts`) (we're using JSON to generate the tree, so the `Item` type could be useful).
 
 ## Usage
@@ -92,3 +97,5 @@ Further instructions are available at [the preserved `create-react-app` README.m
 
 - This Medium post: https://medium.com/the-guild/recursive-react-tree-component-implementation-made-easy-466dfce1a008
 - This GitHub repo: https://github.com/DAB0mB/react-fs-tree
+- Circular dependency resolution: https://stackoverflow.com/a/42704874
+- Circular dependency resolution (with TypeScript!): https://medium.com/visual-development/how-to-fix-nasty-circular-dependency-issues-once-and-for-all-in-javascript-typescript-a04c987cf0de
